@@ -88,21 +88,22 @@ private:
     neighbor_heap k_neighbor_heap_;
     // 求距离时的 p, dist(x, y) = pow((x^p + y^p), 1/p)
     float p;
-    // 析构时是否释放树的内存
+    // Whether to release the memory of the tree during deconstruction
     bool free_tree_;
     // 树根结点
     tree_node *root;
     // 训练集
     const float *datas;
-    // 训练集的样本数
+    // The number of samples for the training set
     size_t n_samples;
     // 每个样本的维度
     size_t n_features;
     // 训练集的标签
     const float *labels;
-    // 寻找中位数时用到的缓存池
+    // Cache pool used when searching for the median
     std::tuple<size_t, float> *get_mid_buf_;
-    // 搜索 K 近邻时的缓存池，如果已经搜索过点 i，令 visited_buf[i] = True
+    // Cache pool when searching for K nearest neighbor, 
+    // visited_buf[i] = True if point i has already been searched
     bool *visited_buf_;
 
 #ifdef USE_INTEL_MKL
