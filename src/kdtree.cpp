@@ -112,13 +112,13 @@ private:
 #endif
 
 
-    // 初始化缓存
+    // Initialize cache
     void InitBuffer();
 
     // build tree
     tree_node *BuildTree(const std::vector<size_t> &points);
 
-    // 求一组数的中位数
+    // Find the median of a set of numbers
     std::tuple<size_t, float> MidElement(const std::vector<size_t> &points, size_t dim);
 
     // 入堆
