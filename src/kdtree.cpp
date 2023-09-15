@@ -96,9 +96,9 @@ private:
     const float *datas;
     // The number of samples for the training set
     size_t n_samples;
-    // 每个样本的维度
+    // Dimensions of each sample
     size_t n_features;
-    // 训练集的标签
+    // Label of training set
     const float *labels;
     // Cache pool used when searching for the median
     std::tuple<size_t, float> *get_mid_buf_;
@@ -115,7 +115,7 @@ private:
     // 初始化缓存
     void InitBuffer();
 
-    // 建树
+    // build tree
     tree_node *BuildTree(const std::vector<size_t> &points);
 
     // 求一组数的中位数
@@ -124,7 +124,7 @@ private:
     // 入堆
     void HeapStackPush(std::stack<tree_node *> &paths, tree_node *node, const float *coor, size_t k);
 
-    // 获取训练集中第 sample 个样本点第 dim 的值
+    // Get the value of the dim-th feature for the sample-th data point in the training set.
     float GetDimVal(size_t sample, size_t dim) {
         return datas[sample * n_features + dim];
     }
@@ -132,7 +132,8 @@ private:
     // 求点 coor 距离训练集第 i 个点的距离
     float GetDist(size_t i, const float *coor);
 
-    // 寻找切分点
+    // Look for the segmentation point
+    // To disperse the dots
     size_t FindSplitDim(const std::vector<size_t> &points);
 
 };
@@ -342,7 +343,7 @@ inline void KDTree::InitBuffer() {
     visited_buf_ = new bool[n_samples];
 
 #ifdef USE_INTEL_MKL
-    // 要与 C 代码交互，所以用 C 的方式申请内存
+    // "To interact with C code, memory is allocated in the same way as C."
     mkl_buf_ = Malloc(float, n_features);
 #endif
 }
