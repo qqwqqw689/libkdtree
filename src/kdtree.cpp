@@ -33,7 +33,7 @@
 
 #endif
 
-// 释放一颗二叉树内存的非递归算法
+// Non-recursive algorithm for freeing the memory of a binary tree
 DLLExport void free_tree_memory(tree_node *root) {
     std::stack<tree_node *> node_stack;
     tree_node *p;
