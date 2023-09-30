@@ -90,9 +90,9 @@ private:
     float p;
     // Whether to release the memory of the tree during deconstruction
     bool free_tree_;
-    // 树根结点
+    // Root node
     tree_node *root;
-    // 训练集
+    // training set
     const float *datas;
     // The number of samples for the training set
     size_t n_samples;
@@ -107,7 +107,7 @@ private:
     bool *visited_buf_;
 
 #ifdef USE_INTEL_MKL
-    // 使用 Intel MKL 库时的缓存
+    // Cache when using Intel MKL library
     float *mkl_buf_;
 #endif
 
