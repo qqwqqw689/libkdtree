@@ -48,7 +48,6 @@ add_executable(demo ${DEMO_FILES})
 # Sets properties on targets.
 # LINKER_LANGUAGE
 # Specifies language whose compiler will invoke the linker.
-# 
 set_target_properties(kdtree PROPERTIES LINKER_LANGUAGE C)
 
 # Link lib and demo
