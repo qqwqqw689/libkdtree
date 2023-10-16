@@ -51,4 +51,6 @@ add_executable(demo ${DEMO_FILES})
 set_target_properties(kdtree PROPERTIES LINKER_LANGUAGE C)
 
 # Link lib and demo
+# target_link_libraries
+# Specify libraries or flags to use when linking a given target and/or its dependents.
 target_link_libraries(demo kdtree)

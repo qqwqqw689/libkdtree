@@ -165,7 +165,7 @@ tree_model *build_kdtree(const float *datas, const float *labels,
     return model;
 }
 
-// 求平均值，用于回归问题
+// Find the average value for regression problems
 float mean(const float *arr, size_t len) {
     float ans = 0.0;
     for (size_t i = 0; i < len; ++i)
