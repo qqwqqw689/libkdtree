@@ -150,7 +150,7 @@ void find_k_nearests(const tree_model *model, const float *coor,
     }
 }
 
-// 建立一棵 KD-Tree
+// Build a KD-Tree
 DLLExport
 tree_model *build_kdtree(const float *datas, const float *labels,
                          size_t rows, size_t cols, float p) {
@@ -270,8 +270,8 @@ inline KDTree::KDTree(const float *datas, const float *labels, size_t rows, size
 }
 
 inline KDTree::~KDTree() {
-    delete[]get_mid_buf_;
-    delete[]visited_buf_;
+    delete[] get_mid_buf_;
+    delete[] visited_buf_;
 #ifdef USE_INTEL_MKL
     free(mkl_buf_);
 #endif

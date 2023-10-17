@@ -1,6 +1,14 @@
 #ifndef LIBKDTREE_LIBRARY_H
 #define LIBKDTREE_LIBRARY_H
 
+// _MSC_VER
+// Defined as an integer literal that encodes the major and
+// minor number elements of the compiler's version number. 
+// __declspec
+// which specifies that an instance of a given type is to be stored with
+// a Microsoft-specific storage-class attribute listed below.
+// When you declare a class dllexport, all its member functions and
+// static data members are exported. 
 #if defined(_MSC_VER)
 #define DLLExport  __declspec(dllexport)
 #else
