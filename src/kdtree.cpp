@@ -86,7 +86,7 @@ private:
 
     // 搜索 K-近邻时的堆（大顶堆），堆顶始终是 K-近邻中样本点最远的点
     neighbor_heap k_neighbor_heap_;
-    // 求距离时的 p, dist(x, y) = pow((x^p + y^p), 1/p)
+    // the exponent or power, dist(x, y) = pow((x^p + y^p), 1/p)
     float p;
     // Whether to release the memory of the tree during deconstruction
     bool free_tree_;
@@ -262,7 +262,7 @@ inline KDTree::KDTree(tree_node *root, const float *datas, size_t rows, size_t c
 
 inline KDTree::KDTree(const float *datas, const float *labels, size_t rows, size_t cols, float p, bool free_tree) :
         datas(datas), labels(labels), n_samples(rows), n_features(cols), p(p), free_tree_(free_tree) {
-    std::vector<size_t> points;
+    std::vector<size_t> points; // the index of points
     for (size_t i = 0; i < n_samples; ++i)
         points.emplace_back(i);
     InitBuffer();
@@ -336,7 +336,7 @@ void KDTree::CFindKNearests(const float *coor, size_t k, size_t *args, float *di
 }
 
 
-// 初始化缓存
+// Initialize cache
 
 inline void KDTree::InitBuffer() {
     get_mid_buf_ = new std::tuple<size_t, float>[n_samples];
@@ -407,6 +407,7 @@ inline void KDTree::HeapStackPush(std::stack<tree_node *> &paths, tree_node *nod
 }
 
 #ifdef USE_INTEL_MKL
+
 inline float KDTree::GetDist(size_t i, const float *coor) {
     size_t idx = i * n_features;
     vsSub(n_features, datas + idx, coor, mkl_buf_);
@@ -414,6 +415,7 @@ inline float KDTree::GetDist(size_t i, const float *coor) {
     float dist = cblas_sasum(n_features, mkl_buf_, 1);
     return static_cast<float>(pow(dist, 1.0 / p));
 }
+
 #else
 
 inline float KDTree::GetDist(size_t i, const float *coor) {
