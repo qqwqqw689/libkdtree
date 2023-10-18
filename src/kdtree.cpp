@@ -84,7 +84,8 @@ private:
     typedef std::priority_queue<neighbor,
             std::vector<neighbor>, neighbor_heap_cmp> neighbor_heap;
 
-    // 搜索 K-近邻时的堆（大顶堆），堆顶始终是 K-近邻中样本点最远的点
+    // The heap (large top heap) when searching for K-nearest neighbor, the top of the heap is always
+    // the farthest point of the sample point in the k-nearest neighbor
     neighbor_heap k_neighbor_heap_;
     // the exponent or power, dist(x, y) = pow((x^p + y^p), 1/p)
     float p;
@@ -121,7 +122,7 @@ private:
     // Find the median of a set of numbers
     std::tuple<size_t, float> MidElement(const std::vector<size_t> &points, size_t dim);
 
-    // 入堆
+    // push into stack
     void HeapStackPush(std::stack<tree_node *> &paths, tree_node *node, const float *coor, size_t k);
 
     // Get the value of the dim-th feature for the sample-th data point in the training set.
@@ -129,7 +130,7 @@ private:
         return datas[sample * n_features + dim];
     }
 
-    // 求点 coor 距离训练集第 i 个点的距离
+    // Find the distance of point coor from the i th point in the training set
     float GetDist(size_t i, const float *coor);
 
     // Look for the segmentation point
