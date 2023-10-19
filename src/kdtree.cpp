@@ -454,7 +454,3 @@ size_t KDTree::FindSplitDim(const std::vector<size_t> &points) {
     }
     return cur_best_dim;
 }
-
-
-
-
