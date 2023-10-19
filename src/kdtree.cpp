@@ -139,7 +139,7 @@ private:
 
 };
 
-// 找到一棵树的 K近邻。Ki 的 id 和 Ki 距离 coor 的距离保存在 args 和 dists 中
+// Find the K-nearest neighbor of a tree. The id of Ki and the distance of Ki from coor are saved in args and dists
 DLLExport
 void find_k_nearests(const tree_model *model, const float *coor,
                      size_t k, size_t *args, float *dists) {
