@@ -174,7 +174,7 @@ float mean(const float *arr, size_t len) {
     return ans / len;
 }
 
-// 投票，用于分类问题
+// Voting, used to classification problems
 float vote(const float *arr, size_t len) {
     std::unordered_map<int, size_t> counter;
     for (size_t i = 0; i < len; ++i) {
