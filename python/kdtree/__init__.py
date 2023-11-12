@@ -1,1 +1,1 @@
-from kdtree.core import *
+from .core import *
