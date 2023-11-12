@@ -48,7 +48,7 @@ int main()
 
 ```
 ## Build
-### Linux and Mac OS
+### Linux
 * `mkdir build`
 * `cd build`
 * `cmake ..`
