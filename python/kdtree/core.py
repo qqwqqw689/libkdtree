@@ -4,13 +4,10 @@ from abc import ABCMeta, abstractmethod
 import os
 import sys
 
-__all__ = ['KNeighborsClassifier', 'KNeighborsRegressor']
 
 DIR_NAME = os.path.dirname(os.path.abspath(__file__))
 if sys.platform == 'win32':
     FILE_NAME = "kdtree.dll"
-elif sys.platform == 'darwin':
-    FILE_NAME = "libkdtree.dylib"
 else:
     FILE_NAME = "libkdtree.so"
 
@@ -38,15 +35,12 @@ def fillprototype(f, restype, argtypes):
 
 
 class tree_node(Structure):
-    pass
-
-
-tree_node._fields_ = [
-    ('id', c_size_t),
-    ('split', c_size_t),
-    ('left', POINTER(tree_node)),
-    ('right', POINTER(tree_node))
-]
+    _fields_ = [
+        ('id', c_size_t),
+        ('split', c_size_t),
+        ('left', POINTER(tree_node)),
+        ('right', POINTER(tree_node))
+    ]
 
 
 class tree_model(Structure):
