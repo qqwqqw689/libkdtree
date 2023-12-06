@@ -27,7 +27,7 @@ def fillprototype(f, restype, argtypes):
     {
         return x + y;    
     }
-    fillprototype(add, [c_float, c_float])
+    fillprototype(add, [c_float] ,[c_float, c_float])
 
     """
     f.restype = restype
