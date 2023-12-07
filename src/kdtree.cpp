@@ -133,7 +133,7 @@ private:
     // Find the distance of point coor from the i th point in the training set
     float GetDist(size_t i, const float *coor);
 
-    // Look for the segmentation point
+    // Look for the best segmentation feature
     // To disperse the dots
     size_t FindSplitDim(const std::vector<size_t> &points);
 
@@ -263,7 +263,7 @@ inline KDTree::KDTree(tree_node *root, const float *datas, size_t rows, size_t c
 
 inline KDTree::KDTree(const float *datas, const float *labels, size_t rows, size_t cols, float p, bool free_tree) :
         datas(datas), labels(labels), n_samples(rows), n_features(cols), p(p), free_tree_(free_tree) {
-    std::vector<size_t> points; // the index of points
+    std::vector<size_t> points; // the index of points : [0,1,2,..,n_sample-1]
     for (size_t i = 0; i < n_samples; ++i)
         points.emplace_back(i);
     InitBuffer();
