@@ -86,7 +86,7 @@ private:
 
     // The heap (large top heap) when searching for K-nearest neighbor, the top of the heap is always
     // the farthest point of the sample point in the k-nearest neighbor
-    neighbor_heap k_neighbor_heap_;
+    neighbor_heap k_neighbor_heap_; // the second argumant of the tuple is distance.
     // the exponent or power, dist(x, y) = pow((x^p + y^p), 1/p)
     float p;
     // Whether to release the memory of the tree during deconstruction
