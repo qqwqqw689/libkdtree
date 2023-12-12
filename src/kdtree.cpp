@@ -119,7 +119,7 @@ private:
     // build tree
     tree_node *BuildTree(const std::vector<size_t> &points);
 
-    // Find the median of a set of numbers
+    // Find the median of a set of numbers(dim-th dimension for each point in points)
     std::tuple<size_t, float> MidElement(const std::vector<size_t> &points, size_t dim);
 
     // push into stack
