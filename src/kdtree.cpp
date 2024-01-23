@@ -310,12 +310,12 @@ std::vector<std::tuple<size_t, float>> KDTree::FindKNearests(const float *coor, 
                     HeapStackPush(paths, p->right, coor, k);
 
                 if ((coor_split_val - node_split_val) < heap_top_val && p->left)
-                    HeapStackPush(paths, p->left, coor, k);
+                    HeapStackPush(paths, p->left, coor, k); // ???
             } else {
                 if (p->left)
                     HeapStackPush(paths, p->left, coor, k);
                 if ((node_split_val - coor_split_val) < heap_top_val && p->right)
-                    HeapStackPush(paths, p->right, coor, k);
+                    HeapStackPush(paths, p->right, coor, k); // ???
             }
         }
     }
